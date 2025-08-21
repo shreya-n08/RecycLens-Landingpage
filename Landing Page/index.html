@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecycLens - Smart Sustainability Platform</title>
+    <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        
+<!-- Landing Page -->
+        <div class="page landing-page" id="landingPage">
+            <div class="hero-section">
+                <div class="hero-logo">🌱 RecycLens</div>
+                <div class="hero-subtitle">AI-Powered Sustainability Platform</div>
+                <div class="hero-description">
+                    Transform the way you recycle and upcycle with cutting-edge AI technology. 
+                    Scan items instantly, discover creative reuse possibilities, and join a global 
+                    community making real environmental impact. 🌍♻️
+                </div>
+                <button class="cta-button" onclick="showPage('signup')">🚀 Get Started</button>
+            </div>
+
+            <div class="global-stats">
+                <div class="stat-card leaf-float">
+                    <div class="stat-number" id="globalItems">2.4M</div>
+                    <div class="stat-label">🔍 Items Scanned Globally</div>
+                    <div class="stat-description">Objects analyzed and given sustainable solutions worldwide</div>
+                </div>
+                <div class="stat-card leaf-float" style="animation-delay: 0.5s;">
+                    <div class="stat-number" id="globalCO2">1,847</div>
+                    <div class="stat-label">🌍 Tons CO₂ Saved</div>
+                    <div class="stat-description">Environmental impact prevented through our community</div>
+                </div>
+                <div class="stat-card leaf-float" style="animation-delay: 1s;">
+                    <div class="stat-number" id="globalUsers">156K</div>
+                    <div class="stat-label">👥 Active Users</div>
+                    <div class="stat-description">Sustainability champions making a difference daily</div>
+                </div>
+                <div class="stat-card leaf-float" style="animation-delay: 1.5s;">
+                    <div class="stat-number" id="globalIdeas">43.2K</div>
+                    <div class="stat-label">💡 Creative Ideas Shared</div>
+                    <div class="stat-description">Innovative upcycling solutions from our community</div>
+                </div>
+            </div>
+        </div>
+        <!-- Sign Up Page -->
+        <div class="page" id="signupPage">
+            <div class="auth-container">
+                <div class="auth-title">🌱 Join RecycLens</div>
+                <div class="auth-subtitle">Start your sustainability journey today!</div>
+                
+                <div class="social-login">
+                    <button class="social-button google" onclick="socialLogin('google')">
+                        <span>🔍</span> Continue with Google
+                    </button>
+                    <button class="social-button facebook" onclick="socialLogin('facebook')">
+                        <span>📘</span> Continue with Facebook
+                    </button>
+                    <button class="social-button apple" onclick="socialLogin('apple')">
+                        <span>🍎</span> Continue with Apple
+                    </button>
+                </div>
+
+                <div class="divider">
+                    <span>or create account</span>
+                </div>
+
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="fullName">🌿 Full Name</label>
+                        <input type="text" id="fullName" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">📧 Email Address</label>
+                        <input type="email" id="signupEmail" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">🔒 Password</label>
+                        <input type="password" id="signupPassword" required placeholder="Create a strong password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">🔒 Confirm Password</label>
+                        <input type="password" id="confirmPassword" required placeholder="Confirm your password">
+                    </div>
+                    <button type="submit" class="auth-button">🚀 Create Account</button>
+                </form>
+
+                <div class="auth-switch">
+                    Already have an account? <a href="#" onclick="showPage('login')">Sign In</a>
+                </div>
+
+                <p style="margin-top: 25px; color: #666; font-size: 0.9em; line-height: 1.4;">
+                    🌍 By joining RecycLens, you agree to our Terms of Service and Privacy Policy. 
+                    Start making a positive environmental impact today!
+                </p>
+            </div>
+        </div>
+
+        <!-- Login Page -->
+        <div class="page" id="loginPage">
+            <div class="auth-container">
+                <div class="auth-title">🌱 Welcome Back</div>
+                <div class="auth-subtitle">Continue your sustainability journey</div>
+                
+                <div class="social-login">
+                    <button class="social-button google" onclick="socialLogin('google')">
+                        <span>🔍</span> Continue with Google
+                    </button>
+                    <button class="social-button facebook" onclick="socialLogin('facebook')">
+                        <span>📘</span> Continue with Facebook
+                    </button>
+                    <button class="social-button apple" onclick="socialLogin('apple')">
+                        <span>🍎</span> Continue with Apple
+                    </button>
+                </div>
+
+                <div class="divider">
+                    <span>or sign in</span>
+                </div>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">📧 Email Address</label>
+                        <input type="email" id="loginEmail" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">🔒 Password</label>
+                        <input type="password" id="loginPassword" required placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="auth-button">🌿 Sign In</button>
+                </form>
+
+                <div class="auth-switch">
+                    <a href="#" onclick="showPage('signup')">Create new account</a> | 
+                    <a href="#" onclick="showForgotPassword()">Forgot password?</a>
+                </div>
+
+                <p style="margin-top: 25px; color: #666; font-size: 0.9em;">
+                    🌍 Ready to continue making an environmental impact?
+                </p>
+            </div>
+        </div>
+        <!-- Modal for Results -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+        <script src="script.js"></script>
+        </body>
+        </html>
